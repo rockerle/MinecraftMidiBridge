@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "midibridge",
+  "version": "1.0",
+  "name": "Midibridge",
+  "description": "",
+  "authors": ["rockerle"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "org.rockerle.midibridge.client.MidibridgeClient"
+    ],
+    "main": []
+  },
+  "mixins": [
+    "midibridge.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.5",
+    "minecraft": "1.18.2"
+  }
+}

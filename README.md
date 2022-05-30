@@ -1,4 +1,5 @@
-# MinecraftMidiBridge
+
+# Minecraft Midi Bridge
 A small "couple hour weekend project" for using a Midi device in Minecraft.
 If you stumble across this repo if you have Midi Instruments/Devices.
 

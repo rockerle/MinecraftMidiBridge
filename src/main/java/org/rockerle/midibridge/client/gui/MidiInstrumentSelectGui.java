@@ -31,6 +31,7 @@ public class MidiInstrumentSelectGui extends LightweightGuiDescription {
         scaleSize.setToggle(NoteHelper.getScale());
         scaleSize.setOnToggle((b)->{
             NoteHelper.switchScale();
+            root.validate(this);
         });
         scaleSize.setSize(10,15);
         root.add(scaleSize, 10,10);
@@ -42,7 +43,7 @@ public class MidiInstrumentSelectGui extends LightweightGuiDescription {
         ArrayList<WSprite> octaves = new ArrayList<>();
 
         Identifier keyboardSprite = new Identifier("midibridge",scaleSize.getToggle()?"oneoctave.png":"twooctave.png");
-        WSprite keyboardPart = new WSprite(new Identifier("midibridge","oneoctave.png"));
+        WSprite keyboardPart = new WSprite(keyboardSprite);
         //keyboardPart.setSize(200,80);
         //root.setSize(keyboardPart.getWidth()+20, keyboardPart.getHeight()+20);
         root.add(keyboardPart, 10, 40, 110,80);

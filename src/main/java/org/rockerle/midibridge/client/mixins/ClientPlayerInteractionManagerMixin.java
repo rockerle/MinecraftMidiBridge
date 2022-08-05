@@ -23,13 +23,14 @@ public class ClientPlayerInteractionManagerMixin {
 
     @Inject(at=@At("HEAD"), method="attackBlock", cancellable = true)
     public void onAttackBlock(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir){
-        if(MinecraftClient.getInstance().world.getBlockState(pos).isOf(Blocks.NOTE_BLOCK)){
-            World w = MinecraftClient.getInstance().world;
-            Property note = Properties.NOTE;
-            BlockState bs = w.getBlockState(pos);
-            int ip = (int) Blocks.NOTE_BLOCK.getStateWithProperties(bs).get(note);
-            MinecraftClient.getInstance().player.sendSystemMessage(new LiteralText("nbt from noteblockItem "+ip), null);
-            //cir.cancel();
+        if(MinecraftClient.getInstance()!=null){
+            if(MinecraftClient.getInstance().world.getBlockState(pos).isOf(Blocks.NOTE_BLOCK)) {
+                World w = MinecraftClient.getInstance().world;
+                Property note = Properties.NOTE;
+                BlockState bs = w.getBlockState(pos);
+                int ip = (int) Blocks.NOTE_BLOCK.getStateWithProperties(bs).get(note);
+                cir.cancel();
+            }
         }
     }
 }
